@@ -10,12 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.note.dx.note.model.Nota;
-import com.note.dx.note.model.Dados;
 import com.note.dx.note.DAO.NotaDAO;
+import com.note.dx.note.model.Dados;
+import com.note.dx.note.model.Nota;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class MainActivity extends Activity {
         Intent intent = getIntent();
         conta = ((Dados) this.getApplication()).getAccount();
 
-        Toast.makeText(MainActivity.this, "Conta: "+conta, Toast.LENGTH_SHORT).show();
+       
 
         listaNotas = findViewById(R.id.lista_notas);
 

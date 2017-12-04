@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -81,7 +80,6 @@ public class LoginActivity extends Activity {
 
     //Método para redirecionar para a MainActivity quando logado
     private void goToMainActivity(GoogleSignInAccount account){
-        Toast.makeText(LoginActivity.this, "Contaeee: "+account, Toast.LENGTH_SHORT).show();
         Intent form = new Intent(LoginActivity.this, MainActivity.class);
         ((Dados) this.getApplication()).setAccount(account);
         startActivity(form);
