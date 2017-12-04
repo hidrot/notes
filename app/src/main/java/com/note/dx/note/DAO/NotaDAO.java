@@ -6,13 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.note.dx.note.model.Nota;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.note.dx.note.model.Nota;
-
 public class NotaDAO extends SQLiteOpenHelper {
 
+    //Instanciaçao da classe do DAO, que verifica se o banco existe e o cria se necessario
     public NotaDAO(Context context) {
         super(context, "Notes", null, 1);
     }
@@ -23,12 +24,14 @@ public class NotaDAO extends SQLiteOpenHelper {
     }
 
     @Override
+    //Metodo para atualizar o banco se necessasrio
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String sql = "DROP TABLE IF EXISTS Notas";
         db.execSQL(sql);
         onCreate(db);
     }
 
+    //Metodo para inserir notas no banco
     public void insere(Nota nota) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -37,6 +40,7 @@ public class NotaDAO extends SQLiteOpenHelper {
         db.insert("Notas", null, dados);
     }
 
+    //Método para capturar nota especifica do banco
     private ContentValues pegaDados(Nota nota) {
         ContentValues dados = new ContentValues();
         dados.put("titulo", nota.getTitulo());
@@ -45,6 +49,7 @@ public class NotaDAO extends SQLiteOpenHelper {
         return dados;
     }
 
+   //Método para capturar todas as notas do banco
     public List<Nota> buscaNotas() {
         String sql = "SELECT * from Notas;";
         SQLiteDatabase db = getReadableDatabase();
@@ -62,12 +67,15 @@ public class NotaDAO extends SQLiteOpenHelper {
         return notas;
     }
 
+
+    //Metodo para deletar nota do banco
     public void deleta(Nota nota) {
         SQLiteDatabase db = getWritableDatabase();
         String[] params = {nota.getId().toString()};
         db.delete("Notas", "id = ?", params);
     }
 
+    //Metodo para alterar nota do banco
     public void altera(Nota nota) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = pegaDados(nota);

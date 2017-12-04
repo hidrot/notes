@@ -6,6 +6,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.util.ArrayList;
 
+//Classe para modelagem de informações com os dados da aplicação
 public class Dados extends Application{
     GoogleSignInAccount account;
     ArrayList<Nota> notas;

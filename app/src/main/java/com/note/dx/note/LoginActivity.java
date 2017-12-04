@@ -25,6 +25,7 @@ public class LoginActivity extends Activity {
     private static final int RC_SIGN_IN = 9001;
 
     @Override
+    //Criaçao da activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -35,6 +36,7 @@ public class LoginActivity extends Activity {
         SignInButton mEmailSignInButton = findViewById(R.id.sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
+            //Click dos botões da view
             public void onClick(View v) {
                  switch (v.getId()) {
                     case R.id.sign_in_button:
@@ -59,11 +61,13 @@ public class LoginActivity extends Activity {
 
     }
 
+    //Método para login no google
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    //Inicio da activity
     protected void onStart() {
         super.onStart();
         // Check for existing Google Sign In account, if the user is already signed in
@@ -74,6 +78,8 @@ public class LoginActivity extends Activity {
             goToMainActivity(account);
         }
     }
+
+    //Método para redirecionar para a MainActivity quando logado
     private void goToMainActivity(GoogleSignInAccount account){
         Toast.makeText(LoginActivity.this, "Contaeee: "+account, Toast.LENGTH_SHORT).show();
         Intent form = new Intent(LoginActivity.this, MainActivity.class);

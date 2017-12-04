@@ -2,6 +2,7 @@ package com.note.dx.note.model;
 
 import java.io.Serializable;
 
+//Classe model para facilitar a modelagem de dados do sistema.
 public class Nota implements Serializable{
 
     private Long id;

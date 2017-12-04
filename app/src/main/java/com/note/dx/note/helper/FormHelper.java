@@ -1,11 +1,12 @@
 package com.note.dx.note.helper;
 
-import com.note.dx.note.FormActivity;
 import android.widget.EditText;
 
+import com.note.dx.note.FormActivity;
 import com.note.dx.note.R;
 import com.note.dx.note.model.Nota;
 
+//Classe helper para auxiliar no cadastro e alteraçao de notas
 public class FormHelper {
 
     private final EditText campoTitulo;

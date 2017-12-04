@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
     private GoogleSignInAccount conta;
 
     @Override
+    //Criaçao da Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
 
         listaNotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+            //Click do item na lista
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Nota nota = (Nota) listaNotas.getItemAtPosition(position);
                 Intent form = new Intent(MainActivity.this, FormActivity.class);
@@ -59,11 +61,13 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    //Retorno à activity
     protected void onResume() {
         super.onResume();
         carregaLista();
     }
 
+    //Carregar a lista de notas
     private void carregaLista() {
         NotaDAO dao = new NotaDAO(this);
         List<Nota> notas = dao.buscaNotas();
@@ -73,6 +77,7 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    //Critar menu de contexto
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
         MenuItem deletar = menu.add("Deletar");
         deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

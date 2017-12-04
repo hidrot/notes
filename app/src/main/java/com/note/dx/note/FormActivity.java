@@ -17,6 +17,7 @@ public class FormActivity extends Activity {
     private FormHelper helper;
 
     @Override
+    //Criação da Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
@@ -32,6 +33,7 @@ public class FormActivity extends Activity {
     }
 
     @Override
+    //Criação do Menu superior
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_formulario, menu);
@@ -39,6 +41,7 @@ public class FormActivity extends Activity {
     }
 
     @Override
+    //Ação para capturar clique do botao de confirmaçao no menu superior
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_formulario_ok:
